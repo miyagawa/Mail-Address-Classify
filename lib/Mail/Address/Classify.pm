@@ -34,7 +34,7 @@ sub belongs {
 
 sub _load_module {
     my($self, $module) = @_;
-    eval qq{require Mail::Address::$module};
+    eval qq{require Mail::Address::Classify::$module};
     if ($@ && $@ !~ /locate/) {
 	_croak $@;
     }
@@ -85,18 +85,18 @@ validating if an address
 
 =over 4
 
-=item o
+=item *
 
 is a free mail (on the web) or not
 
-=item o
+=item *
 
 is a mobile (cellular) mail or not
 
 =back
 
 Mail::Address::Classify is a simple framework, so it cannot be used
-without any pluggable module for the calssification. Currently
+without any pluggable module for the classification. Currently
 distributed classification is C<mobile_jp>.
 
 I hope we will have more implementations soon. See
@@ -143,6 +143,8 @@ C<is_valid> class method:
   }
 
 XXX should I name this method C<belongs_to>?
+
+=back
 
 =head1 AUTHOR
 
